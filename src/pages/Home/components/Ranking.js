@@ -26,10 +26,10 @@ export const Ranking = () => {
     return (
     <section className="ranking">
         {
-            experiencesTop.map(el => <Card key={ el.id } { ...el } /> )
+            experiencesTop.map(el => <Card key={ el._id } { ...el } /> )
         }
         {
-            experiencesTop.map((el, i) => <Card key={i} id={el.id} image={el.image} description={el.title} place={el.place} /> )
+//            experiencesTop.map((el, i) => <Card key={i} id={el.id} image={el.image} description={el.title} place={el.place} /> )
         }
     </section>
     )

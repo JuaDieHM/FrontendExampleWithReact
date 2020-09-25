@@ -2,7 +2,7 @@ import React from 'react'
 import { Score } from '../../../components/Score'
 
 export const Housing = (
-    { id, score, users, description, image, place }
+    { _id, score, users, description, image, place }
 ) => (
     <section className="housing">
         <img src={image} />

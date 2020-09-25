@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button } from '../../components/Button'
 import { FramePage } from './../FramePage'
 import { useParams } from 'react-router-dom'
+import { requestHttp } from '../../config/HttpRequest'
 
 export const BookingPage = () => {
 
@@ -17,13 +18,21 @@ export const BookingPage = () => {
         requestBooking()
     }
 
-    const requestBooking = () => {
+    const requestBooking = async () => {
         const body = {
-            id: id,
-            fullName: name, 
-            cellphone: tel, 
-            email_address: email, 
-            bookingDate: date
+            experience_id: id,
+            name: name, 
+            phone: tel, 
+            email: email, 
+            booking_date: date
+        }
+
+        try {
+            const response = await requestHttp('post', '/bookings/register', body)
+            setIsValidForm(false)
+            alert('Registro almacenado')
+        } catch(error) {
+            console.error(error)
         }
         console.log('body', body)
     }
